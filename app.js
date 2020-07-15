@@ -21,12 +21,12 @@ app.get('/atomic', function(req, res){
       console.log('top ' + n + ' results for "' +
                   options.query + '"');
       while (n--){
-        // console.log('***********');
-        // console.log('Title: ' + data[n].title);
-        // console.log('Author: ' + data[n].author);
-        // console.log('Download: ' +
-        //             'http://gen.lib.rus.ec/book/index.php?md5=' +
-        //             data[n].md5.toLowerCase());
+        console.log('***********');
+        console.log('Title: ' + data[n].title);
+        console.log('Author: ' + data[n].author);
+        console.log('Download: ' +
+                    'http://gen.lib.rus.ec/book/index.php?md5=' +
+                    data[n].md5.toLowerCase());
 
         const searchResult = {
           title: data[n].title,
