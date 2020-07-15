@@ -24,15 +24,51 @@ app.get('/atomic', function(req, res){
 
       const data = await libgen.search(options)
       let n = data.length;
-      console.log('top ' + n + ' results for "' +
-                  options.query + '"');
+      // console.log('top ' + n + ' results for "' +
+      //             options.query + '"');
       while (n--){
-        console.log('***********');
-        console.log('Title: ' + data[n].title);
-        console.log('Author: ' + data[n].author);
-        console.log('Download: ' +
-                    'http://gen.lib.rus.ec/book/index.php?md5=' +
-                    data[n].md5.toLowerCase());
+        // console.log('***********');
+        // console.log('Title: ' + data[n].title);
+        // console.log('Author: ' + data[n].author);
+        // console.log('Download: ' +
+        //             'http://gen.lib.rus.ec/book/index.php?md5=' +
+        //             data[n].md5.toLowerCase());
+
+        const searchResult = {
+          title: data[n].title,
+          author: data[n].author,
+          download: 'http://gen.lib.rus.ec/book/index.php?md5=' + data[n].md5.toLowerCase()
+        }
+        results.push(searchResult);
+      }
+      res.send(results);
+    } catch (err) {
+      return console.error(err)
+    }
+  })();
+
+} );
+
+
+app.get('/:search', function(req, res){
+  
+  const searchQuery = req.params.search;
+
+  (async () => {
+
+    const options = {
+      mirror: 'http://libgen.is',
+      query: searchQuery,
+      count: 5
+    }
+    const results = [];
+  
+    try {
+
+      const data = await libgen.search(options)
+      let n = data.length;
+
+      while (n--){
 
         const searchResult = {
           title: data[n].title,
