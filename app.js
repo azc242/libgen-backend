@@ -63,7 +63,7 @@ app.get('/:search', function(req, res){
     const options = {
       mirror: "http://gen.lib.rus.ec",
       query: searchQuery,
-      count: 5
+      count: 25
     }
     const results = [];
   
