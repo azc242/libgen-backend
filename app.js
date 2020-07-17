@@ -70,9 +70,9 @@ app.get('/:search', function(req, res){
 
       while (n--){
 
-        const md5 = data[n].md5;
-        const url = await libgen.utils.check.canDownload(md5);
-        console.log('Working link: ' + url);
+        // const md5 = data[n].md5;
+        // const url = await libgen.utils.check.canDownload(md5);
+        // console.log('Working link: ' + url);
 
         const searchResult = {
           title: data[n].title,
@@ -80,7 +80,7 @@ app.get('/:search', function(req, res){
           year: data[n].year,
           pages: data[n].pages,
           download: 'http://gen.lib.rus.ec/book/index.php?md5=' + data[n].md5.toLowerCase(),
-          directDownload: url,
+          // directDownload: url,
           extension: data[n].extension
         }
         results.push(searchResult);
