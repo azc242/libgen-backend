@@ -70,9 +70,9 @@ app.get('/:search', function(req, res){
 
       while (n--){
 
-        const md5 = data[n].md5;
-        const url = await libgen.utils.check.canDownload(md5);
-        console.log('Working link: ' + url);
+        // const md5 = data[n].md5;
+        // const url = await libgen.utils.check.canDownload(md5);
+        // console.log('Working link: ' + url);
 
         const searchResult = {
           title: data[n].title,
@@ -83,7 +83,7 @@ app.get('/:search', function(req, res){
           directDownload: url,
           extension: data[n].extension
         }
-        results.push(searchResult);
+        // results.push(searchResult);
       }
       res.send(results);
     } catch (err) {
