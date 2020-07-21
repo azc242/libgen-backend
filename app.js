@@ -12,6 +12,9 @@ app.get('/atomic', function(req, res){
 
   (async () => {
 
+    const urlString = await libgen.mirror();
+  console.log(`${urlString} is currently fastest`);
+
     const options = {
       mirror: 'http://libgen.is',
       query: 'atomic habits',
@@ -55,14 +58,10 @@ app.get('/:search', function(req, res){
 
   (async () => {
 
-    // testing to see which source is the fastest to send API req to
-    // const urlString = await libgen.mirror()
-    // console.log(`${urlString} is currently fastest`)
-
     const options = {
       mirror: "http://gen.lib.rus.ec",
       query: searchQuery,
-      count: 25
+      count: 20
     }
     const results = [];
   
