@@ -9,7 +9,6 @@ app.use(function(req, res, next) {
 });
 
 app.get('/atomic', function(req, res){
-  
 
   (async () => {
 
