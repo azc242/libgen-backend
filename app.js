@@ -12,8 +12,8 @@ app.get('/atomic', function(req, res){
 
   (async () => {
 
-    const urlString = await libgen.mirror();
-  console.log(`${urlString} is currently fastest`);
+  //   const urlString = await libgen.mirror();
+  // console.log(`${urlString} is currently fastest`);
 
     const options = {
       mirror: 'http://libgen.is',
