@@ -3,7 +3,7 @@ This project was built to create a more user-friendly, appealing, and forgiving 
 ### Usage
 Heading to the link provided in the repository description will give an error. Append the search query the URL after the backslash to obtain the information about that file.
 For example, this searches for the book Atomic Habits:
-> [https://nameless-falls-09464.herokuapp.com/atomic%20habits](https://nameless-falls-09464.herokuapp.com/atomic%20habits)
+> [https://nameless-falls-09464.herokuapp.com/james%20clear%20atomic%20habits](https://nameless-falls-09464.herokuapp.com/james%20clear%20atomic%20habits)
 ![JSON Example of Atomic Habits](https://i.imgur.com/2Z7520m.jpg)
 I use [this Chrome extension](https://chrome.google.com/webstore/detail/json-viewer-awesome/iemadiahhbebdklepanmkjenfdebfpfe?hl=en) for JSON formatting
 
