@@ -1,3 +1,4 @@
+// jshint esversion: 8
 const express = require('express');
 const libgen = require('libgen');
 const app = express();
@@ -11,25 +12,20 @@ app.use(function(req, res, next) {
 app.get('/atomic', function(req, res){
 
   (async () => {
-
-  //   const urlString = await libgen.mirror();
-  // console.log(`${urlString} is currently fastest`);
-
+    // for testing fastest mirror
+    // const urlString = await libgen.mirror();
+    // console.log(`${urlString} is currently fastest`);
     const options = {
       mirror: 'http://libgen.is',
       query: 'atomic habits',
       count: 5
-    }
+    };
     const results = [];
-  
-    try {
 
-      const data = await libgen.search(options)
+    try {
+      const data = await libgen.search(options);
       let n = data.length;
-      // console.log('top ' + n + ' results for "' +
-      //             options.query + '"');
       while (n--){
-        // console.log('***********');
         // console.log('Title: ' + data[n].title);
         // console.log('Author: ' + data[n].author);
         // console.log('Download: ' +
@@ -40,12 +36,12 @@ app.get('/atomic', function(req, res){
           title: data[n].title,
           author: data[n].author,
           download: 'http://gen.lib.rus.ec/book/index.php?md5=' + data[n].md5.toLowerCase()
-        }
+        };
         results.push(searchResult);
       }
       res.send(results);
     } catch (err) {
-      return console.error(err)
+      return console.error(err);
     }
   })();
 
@@ -53,7 +49,7 @@ app.get('/atomic', function(req, res){
 
 
 app.get('/:search', function(req, res){
-  
+
   const searchQuery = req.params.search;
 
   (async () => {
@@ -62,20 +58,15 @@ app.get('/:search', function(req, res){
       mirror: "http://gen.lib.rus.ec",
       query: searchQuery,
       count: 20
-    }
+    };
     const results = [];
-  
+
     try {
 
-      const data = await libgen.search(options)
+      const data = await libgen.search(options);
       let n = data.length;
 
       while (n--){
-
-        // const md5 = data[n].md5;
-        // const url = await libgen.utils.check.canDownload(md5);
-        // console.log('Working link: ' + url);
-
         const searchResult = {
           title: data[n].title,
           author: data[n].author,
@@ -84,12 +75,12 @@ app.get('/:search', function(req, res){
           download: 'http://gen.lib.rus.ec/book/index.php?md5=' + data[n].md5.toLowerCase(),
           // directDownload: url,
           extension: data[n].extension
-        }
+        };
         results.push(searchResult);
       }
       res.send(results);
     } catch (err) {
-      return console.error(err)
+      return console.error(err);
     }
   })();
 
